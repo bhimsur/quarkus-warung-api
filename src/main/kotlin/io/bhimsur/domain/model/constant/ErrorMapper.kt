@@ -6,6 +6,7 @@ object ErrorMapper {
         const val WRONG_PASSWORD: Int = 1
         const val USERNAME_ALREADY_EXISTS: Int = 2
         const val EMAIL_ALREADY_EXISTS: Int = 3
+        const val DATA_NOT_FOUND: Int = 4
     }
 
     object Message {
