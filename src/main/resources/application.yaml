@@ -1,0 +1,20 @@
+jwt:
+  issuer: user-service
+  secret: sekret
+  expiration:
+    time:
+      minutes: 15
+quarkus:
+  datasource:
+    db-kind: postgresql
+    jdbc:
+      url: jdbc:postgresql://localhost:5432/db_warung
+      driver: org.postgresql.Driver
+    username: super_admin
+    password: password_super
+  hibernate-orm:
+    jdbc:
+      statement-batch-size: 100
+    database:
+      database:
+        generation: update
