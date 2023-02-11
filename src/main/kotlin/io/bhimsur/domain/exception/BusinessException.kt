@@ -1,6 +1,5 @@
 package io.bhimsur.domain.exception
 
-import java.io.Serial
 import java.util.*
 
 open class BusinessException : RuntimeException {
@@ -19,7 +18,6 @@ open class BusinessException : RuntimeException {
     }
 
     companion object {
-        @Serial
         private const val serialVersionUID: Long = 8736432437215848069L
     }
 }
