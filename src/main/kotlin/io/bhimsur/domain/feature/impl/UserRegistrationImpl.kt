@@ -2,6 +2,7 @@ package io.bhimsur.domain.feature.impl
 
 import io.bhimsur.domain.exception.AlreadyExistsException
 import io.bhimsur.domain.feature.UserRegistration
+import io.bhimsur.domain.model.constant.ErrorMapper
 import io.bhimsur.domain.model.provider.HashProvider
 import io.bhimsur.domain.model.user.User
 import io.bhimsur.domain.model.user.UserModelBuilder
@@ -24,13 +25,13 @@ class UserRegistrationImpl(
 
     private fun checkExistingUsername(username: String) {
         if (userRepository.existsUsername(username)) {
-            throw AlreadyExistsException(2, "Username Already Exists")
+            throw AlreadyExistsException(ErrorMapper.Code.USERNAME_ALREADY_EXISTS, ErrorMapper.Message.USERNAME_ALREADY_EXISTS)
         }
     }
 
     private fun checkExistingEmail(email: String) {
         if (userRepository.existsEmail(email)) {
-            throw AlreadyExistsException(3, "Email Already Exists")
+            throw AlreadyExistsException(ErrorMapper.Code.EMAIL_ALREADY_EXISTS, ErrorMapper.Message.EMAIL_ALREADY_EXISTS)
         }
     }
 }
