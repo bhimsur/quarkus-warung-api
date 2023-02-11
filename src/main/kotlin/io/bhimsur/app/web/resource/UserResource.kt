@@ -1,6 +1,7 @@
 package io.bhimsur.app.web.resource
 
 import io.bhimsur.app.web.model.constant.RequestMapper
+import io.bhimsur.app.web.model.constant.ResourceConstant
 import io.bhimsur.app.web.model.request.UserLoginRequest
 import io.bhimsur.app.web.model.request.UserRegistrationRequest
 import io.bhimsur.app.web.model.response.UserResponse
@@ -36,7 +37,11 @@ class UserResource(
     ): Response {
         val user: User = userRegistration.command(userRegistrationRequest.toUserRegistrationInput())
         val token: String = tokenProvider.generateToken(user.id.toString())
-        return Response.ok(UserResponse(user, token)).status(Response.Status.CREATED).build()
+        return Response
+            .ok(UserResponse(user))
+            .status(Response.Status.CREATED)
+            .header(ResourceConstant.ACCESS_TOKEN, token)
+            .build()
     }
 
     @POST
@@ -53,6 +58,10 @@ class UserResource(
             throw UnauthorizedException()
         }
         val token = tokenProvider.generateToken(user.id.toString())
-        return Response.ok(UserResponse(user, token)).status(Response.Status.OK).build()
+        return Response
+            .ok(UserResponse(user))
+            .status(Response.Status.OK)
+            .header(ResourceConstant.ACCESS_TOKEN, token)
+            .build()
     }
 }

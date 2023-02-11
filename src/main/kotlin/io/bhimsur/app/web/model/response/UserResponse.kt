@@ -8,8 +8,7 @@ import io.quarkus.runtime.annotations.RegisterForReflection
 @RegisterForReflection
 data class UserResponse(
     val username: String,
-    val fullName: String?,
-    val token: String
+    val fullName: String?
 ) {
-    constructor(user: User, token: String) : this(user.username, user.fullName, token)
+    constructor(user: User) : this(user.username, user.fullName)
 }
