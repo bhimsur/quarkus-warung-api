@@ -22,6 +22,8 @@ dependencies {
     implementation("io.quarkus:quarkus-arc")
     implementation("io.quarkus:quarkus-resteasy-reactive")
     implementation("io.quarkus:quarkus-hibernate-validator")
+    implementation("io.quarkus:quarkus-hibernate-orm")
+    implementation("io.quarkus:quarkus-hibernate-orm-panache")
     implementation("com.auth0:java-jwt:3.8.2")
     implementation("org.mindrot:jbcrypt:0.4")
     testImplementation("io.quarkus:quarkus-junit5")
