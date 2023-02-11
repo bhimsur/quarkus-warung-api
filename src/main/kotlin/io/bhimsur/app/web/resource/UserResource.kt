@@ -1,5 +1,6 @@
 package io.bhimsur.app.web.resource
 
+import io.bhimsur.app.web.model.constant.RequestMapper
 import io.bhimsur.app.web.model.request.UserLoginRequest
 import io.bhimsur.app.web.model.request.UserRegistrationRequest
 import io.bhimsur.app.web.model.response.UserResponse
@@ -19,13 +20,14 @@ import javax.ws.rs.Produces
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
 
-@Path("/user")
+@Path(RequestMapper.USER)
 class UserResource(
     private val userRegistration: UserRegistration,
     private val userLogin: UserLogin,
     private val tokenProvider: TokenProvider
 ) {
     @POST
+    @Path(RequestMapper.REGISTER)
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -38,7 +40,7 @@ class UserResource(
     }
 
     @POST
-    @Path("/login")
+    @Path(RequestMapper.LOGIN)
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     fun login(
