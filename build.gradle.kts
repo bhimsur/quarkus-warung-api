@@ -25,6 +25,7 @@ dependencies {
     implementation("io.quarkus:quarkus-hibernate-orm")
     implementation("io.quarkus:quarkus-hibernate-orm-panache")
     implementation("io.quarkus:quarkus-config-yaml")
+    implementation("io.quarkus:quarkus-jdbc-postgresql")
     implementation("com.auth0:java-jwt:3.8.2")
     implementation("org.mindrot:jbcrypt:0.4")
     testImplementation("io.quarkus:quarkus-junit5")
