@@ -16,5 +16,4 @@ quarkus:
     jdbc:
       statement-batch-size: 100
     database:
-      database:
-        generation: update
+      generation: update
