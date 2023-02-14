@@ -3,7 +3,9 @@ package io.bhimsur.infra.provider
 import io.bhimsur.domain.model.provider.HashProvider
 import org.mindrot.jbcrypt.BCrypt
 import javax.enterprise.context.ApplicationScoped
+import javax.inject.Named
 
+@Named(value = "bcrypt")
 @ApplicationScoped
 class BCryptPasswordProvider : HashProvider {
     override fun hashPassword(password: String): String {
