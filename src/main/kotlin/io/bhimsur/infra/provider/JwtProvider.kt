@@ -40,7 +40,8 @@ class JwtProvider(
     }
 
     override fun validateToken(token: String): DecodedJWT {
-        return jwtVerifier.verify(token)
+        val bearer = token.replace("Bearer ", "")
+        return jwtVerifier.verify(bearer)
     }
 
     private fun plusMinutes(minutes: Int): Date {
