@@ -5,4 +5,5 @@ object RequestMapper {
     const val REGISTER: String = "/register"
     const val USER: String = "/user"
     const val WALLET: String = "/wallet"
+    const val WALLET_TRANSACTION: String = "$WALLET/transaction"
 }

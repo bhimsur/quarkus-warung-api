@@ -7,6 +7,8 @@ object ErrorMapper {
         const val USERNAME_ALREADY_EXISTS: Int = 2
         const val EMAIL_ALREADY_EXISTS: Int = 3
         const val DATA_NOT_FOUND: Int = 4
+        const val INVALID_PARAMETER: Int = 5
+        const val TRANSACTION_FAILED: Int = 6
     }
 
     object Message {
