@@ -1,7 +1,9 @@
 package io.bhimsur.infra.config
 
 import io.bhimsur.domain.feature.GetWalletByUser
+import io.bhimsur.domain.feature.WalletTransaction
 import io.bhimsur.domain.feature.impl.GetWalletByUserImpl
+import io.bhimsur.domain.feature.impl.WalletTransactionImpl
 import io.bhimsur.domain.model.wallet.WalletModelBuilder
 import io.bhimsur.domain.model.wallet.WalletRepository
 import io.bhimsur.domain.validator.ModelValidator
@@ -21,5 +23,14 @@ class WalletConfiguration {
     @Singleton
     fun getWalletByUser(walletRepository: WalletRepository): GetWalletByUser {
         return GetWalletByUserImpl(walletRepository)
+    }
+
+    @Produces
+    @Singleton
+    fun walletTransaction(
+        walletRepository: WalletRepository,
+        walletModelBuilder: WalletModelBuilder
+    ): WalletTransaction {
+        return WalletTransactionImpl(walletRepository, walletModelBuilder)
     }
 }
